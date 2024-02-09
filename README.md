@@ -1,5 +1,6 @@
 Containerize This: PHP/Apache/MySQL
 ===================================
+Ref: https://github.com/JaieParker/php-apache-mysql-containerized
 
 ### Intro
 Continuing with the Containerize This! series, we're looking at common web application technologies and how they can be used within Docker containers effectively. PHP/Apache/MySQL have a very large market share on content management systems and web applications on the internet, and with so many developers using these technologies, there is a lot of interest to modernize the way that they use them from from local development all the way to production. Today we'll take a look at several ways to containerize and link PHP, Apache, and MySQL together while demonstrating some tips, tricks, and best-practices that will help you take a modern approach when developing and deploying your PHP applications!
@@ -18,7 +19,7 @@ There are 5 simple files for this demo that you can clone from https://github.co
     └── index.php
 ```
 
-Once this structure is replicated or cloned with these files, and Docker installed locally, you can simply run "docker-compose up" from the root of the project to run this entire demo, and point your browser (or curl) to http://localhost:80 to see the demo. We will get into what "docker-compose" is, and what makes up this basic demonstration in the following sections!
+Once this structure is replicated or cloned with these files, and Docker installed locally, you can simply run "docker-compose up" from the root of the project to run this entire demo, and point your browser (or curl) to http://localhost:8080 to see the demo. We will get into what "docker-compose" is, and what makes up this basic demonstration in the following sections!
 
 We'll use the following simple PHP application to demonstrate everything:
 
@@ -73,7 +74,7 @@ services:
       - frontend
       - backend
     ports:
-      - "80:80"
+      - "8080:80"
     volumes:
       - ${PROJECT_ROOT}/:/var/www/html/
     container_name: apache
@@ -199,3 +200,10 @@ apache_1  | 172.18.0.1 - - [16/Jul/2018:02:09:22 +0000] "GET / HTTP/1.1" 200 108
 ### Conclusion
 
 With these basic principals you can link services together to create applications. You could easily include "composer" in the PHP container to build and run your PHP/Laravel application in a similar manner. Perhaps you want to run Drupal or Wordpress and decouple PHP from the Apache instance, that is possible too! You can even use this to seamlessly test PHP version or MySQL version upgrades with minimal code change. There are a lot of benefits to modernizing your application with Docker using docker-compose and some of the latest images and features.
+
+
+### Trying to create a new project user composer
+
+In PHP using https://www.codeigniter.com/user_guide/installation/installing_composer.html
+composer create-project codeigniter4/appstarter
+
