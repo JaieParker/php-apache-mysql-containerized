@@ -201,6 +201,13 @@ apache_1  | 172.18.0.1 - - [16/Jul/2018:02:09:22 +0000] "GET / HTTP/1.1" 200 108
 
 With these basic principals you can link services together to create applications. You could easily include "composer" in the PHP container to build and run your PHP/Laravel application in a similar manner. Perhaps you want to run Drupal or Wordpress and decouple PHP from the Apache instance, that is possible too! You can even use this to seamlessly test PHP version or MySQL version upgrades with minimal code change. There are a lot of benefits to modernizing your application with Docker using docker-compose and some of the latest images and features.
 
+### PHP Settings
+the ini file is located here and has two versions one for dev and one for prod
+
+```
+ ls /usr/local/etc/php
+```
+
 
 ### Trying to create a new project user composer
 
@@ -211,16 +218,29 @@ composer create-project codeigniter4/appstarter
 ## Symfony
 ref: https://symfony.com/download
 
-Pre-req:
+```
+# Pre-req:
 apk add git
-
 
 apk add --no-cache bash
 curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.alpine.sh' | bash
 apk add symfony-cli
+```
 
-The aboves gives me errors, trying the composer method:
+OR
 
+```
 composer create-project symfony/skeleton:"7.0.*" symfonyWebApp
 cd symfonyWebApp
 composer require webapp
+```
+
+## Laravel using Jetstream
+
+Ref: https://jetstream.laravel.com/installation.html
+
+```
+composer create-project laravel/laravel LaravelJetstreamWebApp
+cd LaravelJetstreamWebApp
+composer require laravel/jetstream
+```
