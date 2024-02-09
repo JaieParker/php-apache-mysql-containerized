@@ -204,6 +204,23 @@ With these basic principals you can link services together to create application
 
 ### Trying to create a new project user composer
 
+## Code Igniter
 In PHP using https://www.codeigniter.com/user_guide/installation/installing_composer.html
 composer create-project codeigniter4/appstarter
 
+## Symfony
+ref: https://symfony.com/download
+
+Pre-req:
+apk add git
+
+
+apk add --no-cache bash
+curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.alpine.sh' | bash
+apk add symfony-cli
+
+The aboves gives me errors, trying the composer method:
+
+composer create-project symfony/skeleton:"7.0.*" symfonyWebApp
+cd symfonyWebApp
+composer require webapp
