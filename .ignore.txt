@@ -1,0 +1,2 @@
+public_html/LaravelJetstreamWebApp/
+public_html/codeIgnitor_appstarter/
